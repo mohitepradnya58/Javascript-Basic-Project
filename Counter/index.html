@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background: aliceblue;
+      }
+      .container {
+        height: 100vh;
+        display: grid;
+        place-content: center;
+
+        margin: 1rem;
+      }
+
+      .count-text-div {
+        border: 10px solid #0c9fd0;
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+        width: 900px;
+        height: 350px;
+        display: grid;
+        place-content: center;
+      }
+
+      #Increase,
+      #Decrease {
+        padding: 16px 32px;
+        background: rgb(3, 3, 89);
+        color: #fff;
+        font-size: 18px;
+        border-radius: 25px;
+        outline: none;
+        border: 1px solid rgb(3, 3, 89);
+        margin: 10px auto;
+      }
+      .btn-container {
+        text-align: center;
+        margin: 3rem 0 0 0;
+      }
+      .count-text {
+        font-size: 48px;
+        margin-bottom: 1rem;
+      }
+      #count {
+        text-align: center;
+        font-size: 36px;
+      }
+      @media screen and (max-width: 1024px) {
+        .count-text-div {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="count-text-div">
+        <div class="count-text">Counter</div>
+        <p id="count">0</p>
+      </div>
+      <div class="btn-container">
+        <button id="Increase">Increase</button>
+        <button id="Decrease">Decrease</button>
+      </div>
+    </div>
+    <script>
+      let count = document.getElementById("count");
+      let Increase = document.getElementById("Increase");
+      let Decrease = document.getElementById("Decrease");
+
+      let counter = 0;
+
+      Increase.addEventListener("click", function () {
+        counter++;
+        count.innerHTML = counter;
+      });
+
+      Decrease.addEventListener("click", function () {
+        if (counter > 0) {
+          counter--;
+          count.innerHTML = counter;
+        }
+      });
+    </script>
+  </body>
+</html>

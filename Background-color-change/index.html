@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Color Change</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #color-change {
+        padding: 16px 32px;
+        background: rgb(3, 3, 89);
+        color: #fff;
+        font-size: 18px;
+        border-radius: 25px;
+        outline: none;
+        border: 1px solid rgb(3, 3, 89);
+      }
+    </style>
+  </head>
+  <body>
+    <button id="color-change">Click Me To Change Background Color</button>
+
+    <script>
+      let index = 0;
+      let colorChange = document.getElementById("color-change");
+      let body = document.body;
+      colorChange.addEventListener("click", function () {
+        let color = ["red", "blue", "orange", "yellow"];
+
+        body.style.backgroundColor = color[index++];
+
+        if (index > color.length) {
+          index = 0;
+        }
+      });
+    </script>
+  </body>
+</html>

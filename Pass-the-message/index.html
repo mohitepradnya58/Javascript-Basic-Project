@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pass The Message</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        display: grid;
+        place-content: center;
+        height: 100vh;
+        background: aliceblue;
+      }
+      h3 {
+        font-size: 32px;
+        margin-bottom: 2rem;
+        line-height: 25px;
+        font-weight: 300;
+        text-align: center;
+      }
+
+      .input-container {
+        margin: 16px 0;
+        display: flex;
+        justify-content: center;
+      }
+      .all-container {
+        background: lightgray;
+        padding: 3.5rem 1rem;
+        border-radius: 1.5rem;
+        max-width: 950px;
+        width: 950px;
+        /* height: 300px; */
+        display: grid;
+        place-content: center;
+      }
+      input {
+        width: 500px;
+        padding: 0.5rem 17px 0.5rem 17px;
+
+        height: 45px;
+        outline: none;
+        border: 1px solid #dfdfdf;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      .email-button {
+        transform: translateX(10px);
+        height: 45px;
+        width: 50px;
+        outline: none;
+        border: 1px solid #dfdfdf;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        font-size: 30px;
+      }
+      .submit-btn {
+        display: block;
+
+        padding: 16px 32px;
+        margin: 0 auto;
+        border-radius: 10px;
+        outline: none;
+        border: 1px solid #baafaf;
+        font-size: 19px;
+      }
+      #output {
+        height: 50px;
+        font-size: 21px;
+        margin: 1rem 0 0 0;
+        text-align: center;
+        line-height: 25px;
+      }
+      @media screen and (max-width: 1024px) {
+        .all-container,
+        input {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="all-container">
+        <h3>Pass The Message</h3>
+
+        <div class="input-container">
+          <button class="email-button">&#9993;</button>
+          <input id="message" placeholder="Enter Your Message" />
+        </div>
+        <button class="submit-btn">Submit</button>
+        <p id="output"></p>
+      </div>
+    </div>
+    <script>
+      let message = document.getElementById("message");
+      let submitBtn = document.getElementsByClassName("submit-btn")[0];
+      let output = document.getElementById("output");
+      submitBtn.addEventListener("click", function () {
+        receiveMsg = message.value;
+        output.innerHTML = receiveMsg;
+      });
+    </script>
+  </body>
+</html>

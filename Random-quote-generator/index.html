@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quote Generator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background: aliceblue;
+      }
+      .container {
+        height: 100vh;
+        display: grid;
+        place-content: center;
+
+        margin: 1rem;
+      }
+      .quote {
+        font-size: 32px;
+        line-height: 35px;
+        margin-bottom: 2rem;
+        font-weight: 300;
+      }
+      .author {
+        font-size: 24px;
+        line-height: 25px;
+        padding-left: 1rem;
+        font-weight: bold;
+      }
+      .quote-div {
+        border: 10px solid #0c9fd0;
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+        width: 900px;
+        height: 350px;
+        display: grid;
+        place-content: center;
+      }
+
+      .generate-quote {
+        padding: 16px 32px;
+        background: rgb(3, 3, 89);
+        color: #fff;
+        font-size: 18px;
+        border-radius: 25px;
+        outline: none;
+        border: 1px solid rgb(3, 3, 89);
+        margin: 3rem auto;
+      }
+      @media screen and (max-width: 1024px) {
+        .quote-div {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="quote-div">
+        <div class="quote">
+          "It is never too late to be what you might have been."
+        </div>
+        <p class="author">-George Eliot</p>
+      </div>
+      <button class="generate-quote">Click Me To Generate Quotes</button>
+    </div>
+    <script>
+      let generateQuote = document.getElementsByClassName("generate-quote")[0];
+      let quote = document.getElementsByClassName("quote")[0];
+      let author_ = document.getElementsByClassName("author")[0];
+
+      const quotes = {
+        "-Ralph Waldo Emerson":
+          '"To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment."',
+        "-Voltaire":
+          '"Appreciation is a wonderful thing. It makes what is excellent in others belong to us as well."',
+        "-Stephen King":
+          '"Amateurs sit and wait for inspiration, the rest of us just get up and go to work."',
+        "-Brene Brown":
+          '"Self-awareness and self-love matter. Who we are is how we lead.",',
+      };
+      let authors = Object.keys(quotes);
+
+      generateQuote.addEventListener("click", function () {
+        let author = authors[Math.floor(Math.random() * authors.length)];
+
+        quote.innerHTML = quotes[author];
+        author_.innerHTML = author;
+      });
+    </script>
+  </body>
+</html>

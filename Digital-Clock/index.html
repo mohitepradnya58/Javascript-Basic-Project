@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Clock</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background: linear-gradient(
+          45deg,
+          rgba(238, 174, 202, 1) 0%,
+          rgba(148, 187, 233, 1) 100%
+        );
+        font-size: 30px;
+      }
+      .container {
+        height: 100vh;
+        display: grid;
+        place-content: center;
+
+        margin: 1rem;
+      }
+      .clock-container {
+        display: flex;
+        gap: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="clock-container">
+        <div id="day"></div>
+        <div>:</div>
+        <div id="hr"></div>
+        <div>:</div>
+        <div id="min"></div>
+        <div>:</div>
+        <div id="sec"></div>
+      </div>
+    </div>
+    <script>
+      let day = document.getElementById("day");
+      let hr = document.getElementById("hr");
+      let min = document.getElementById("min");
+      let sec = document.getElementById("sec");
+
+      setInterval(function () {
+        let date = new Date();
+        const weekday = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        let day_ = weekday[date.getDay()];
+        let hr_ = date.getHours();
+        let min_ = date.getMinutes();
+        let sec_ = date.getSeconds();
+        document.getElementById("day").innerHTML = day_;
+        document.getElementById("hr").innerHTML = hr_ < 10 ? "0" + hr_ : hr_;
+        document.getElementById("min").innerHTML =
+          min_ < 10 ? "0" + min_ : min_;
+        document.getElementById("sec").innerHTML =
+          sec_ < 10 ? "0" + sec_ : sec_;
+      }, 1000);
+    </script>
+  </body>
+</html>

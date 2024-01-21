@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hex Code display</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+      #color-change {
+        padding: 16px 32px;
+        background: rgb(3, 3, 89);
+        color: #fff;
+        font-size: 18px;
+        border-radius: 25px;
+        outline: none;
+        border: 1px solid rgb(3, 3, 89);
+        margin-top: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hex code of color is <span class="hex-code"></span></h1>
+
+    <button id="color-change">Click Me To Display Hex Code of Color</button>
+
+    <script>
+      let colorChange = document.getElementById("color-change");
+      let hexSpan = document.getElementsByClassName("hex-code")[0];
+
+      colorChange.addEventListener("click", function () {
+        debugger;
+        let hexNum = [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+        ];
+
+        let hex = "#";
+        for (i = 0; i < 6; i++) {
+          const hexColor = Math.floor(Math.random() * 16);
+          hex += hexNum[hexColor];
+        }
+        hexSpan.innerHTML = hex;
+        document.body.style.backgroundColor = hex;
+      });
+    </script>
+  </body>
+</html>
